@@ -78,6 +78,13 @@ c. Abstraction (Abstraksi)
 
 Abstraksi diterapkan melalui class BaseEntitas yang dibuat menggunakan modul ABC (Abstract Base Class) dari library bawaan Python. Class ini mendefinisikan dua method abstrak yaitu tampil_info() dan hitung() yang berfungsi sebagai kontrak atau blueprint yang mengharuskan setiap class turunannya untuk mengimplementasikan kedua method tersebut. Apabila salah satu method tidak diimplementasikan oleh class turunan, Python akan secara otomatis melempar error sehingga konsistensi implementasi terjaga.
 
+Karena Django memiliki sistem metaclass tersendiri yang tidak kompatibel apabila digabungkan langsung dengan ABC, maka abstraksi diimplementasikan melalui class terpisah yaitu MahasiswaInfo dan PembayaranInfo yang mewarisi BaseEntitas secara langsung.
+
+d. Polymorphism (Polimorfisme)
+
+Polimorfisme diterapkan melalui method tampil_info() dan hitung() yang memiliki nama identik namun menghasilkan perilaku yang berbeda pada setiap class. Hal ini merupakan implementasi dari konsep method overriding dalam OOP, di mana setiap class mendefinisikan ulang method yang sama dengan logika yang berbeda sesuai dengan kebutuhan masing-masing class.
+
+Dengan implementasi ini, method yang sama dapat dipanggil pada object yang berbeda dan menghasilkan output yang berbeda sesuai dengan konteks masing-masing class, yang merupakan inti dari konsep polimorfisme dalam OOP. 
 
 
 

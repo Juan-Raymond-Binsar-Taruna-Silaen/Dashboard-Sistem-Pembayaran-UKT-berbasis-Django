@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Pembayaran UKT</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Inter',sans-serif;
+        }
+
+        body{
+    display:flex;
+    background:#f4f7fc;
+    font-weight:400;
+    overflow-x: hidden;
+}
+
+
+.sidebar{
+    width:260px;
+    height:100vh;
+    background:linear-gradient(180deg,#6C63FF,#5146e5);
+    color:white;
+    padding:25px;
+    position:fixed;
+}
+
+.sidebar h2{
+    margin-bottom:40px;
+    text-align:center;
+    font-weight:600;
+}
+
+.menu{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.menu:hover{
+    background:rgba(255,255,255,.2);
+}
+
+.menu.active{
+    background:rgba(255,255,255,.25);
+    font-weight:bold;
+}
+
+.menu i{
+    margin-right:10px;
+}
+
+
+.content{
+    flex:1;
+    margin-left:260px;
+    padding:30px;
+    min-width: 0;
+    max-width: calc(100vw - 260px);
+}
+        /* HEADER */
+
+        .page-title{
+    margin-bottom:25px;
+}
+
+.page-title h1{
+    font-size:22px;
+    font-weight:600;
+    color:#333;
+}
+
+.page-title span{
+    font-size:13px;
+    color:#999;
+}
+
+        .btn{
+    background:#6C63FF;
+    color:white;
+    border:none;
+    padding:13px 20px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:500;
+    transition:.3s;
+}
+
+        .btn:hover{
+            transform:translateY(-2px);
+            box-shadow:0 5px 15px rgba(108,99,255,.3);
+        }
+    
+
+        .form-box{
+    background:white;
+    padding:25px;
+    border-radius:24px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    margin-bottom:25px;
+
+    border:1px solid #ececff;
+    transition:.3s;
+}
+
+        .form-grid{
+    display:grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap:15px;
+}
+
+        .form-group label{
+            display:block;
+            margin-bottom:6px;
+            font-size:13px;
+            color:#555;
+        }
+
+        .form-group input,
+        .form-group select{
+            width:100%;
+            padding:12px;
+            border:1px solid #ddd;
+            border-radius:10px;
+            outline:none;
+        }
+
+
+        .filter{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    background:white;
+    padding:16px 20px;
+
+    border-radius:18px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.06);
+
+    margin-bottom:25px;
+}
+
+        .filter i{
+            color:#6C63FF;
+            font-size:15px;
+        }
+
+        .filter input{
+            flex:1;
+            border:none;
+            outline:none;
+            font-size:15px;
+            background:none;
+            color:#333;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+            border-radius:20px;
+            overflow:hidden;
+            box-shadow:0 4px 15px rgba(0,0,0,0.08);
+            
+        }
+
+        th{
+            background:linear-gradient(180deg,#6C63FF,#5146e5);
+            color:white;
+            padding:16px;
+            font-size:14px;
+            font-weight:600;
+            border-bottom:none;
+        }
+
+        td{
+            padding:14px;
+            text-align:center;
+            border-bottom:1px solid #eee;
+            font-size:14px;
+        }
+
+        tr:hover{
+            background:#f8f8ff;
+        }
+
+
+        .badge{
+            padding:6px 12px;
+            border-radius:20px;
+            font-size:12px;
+            font-weight:600;
+        }
+
+        .lunas{
+            background:#d4edda;
+            color:#155724;
+        }
+
+        .cicilan{
+            background:#fff3cd;
+            color:#856404;
+        }
+
+        .belum{
+            background:#f8d7da;
+            color:#721c24;
+        }
+
+
+        .aksi{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+        }
+
+        .aksi a{
+    text-decoration:none;
+        }
+
+        .aksi button{
+    border:none;
+    padding:10px 16px;
+    border-radius:12px;
+    color:white;
+    cursor:pointer;
+
+    font-size:13px;
+    font-weight:500;
+
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    transition:.3s;
+        }
+
+        .edit{
+    background:linear-gradient(135deg,#22C55E,#16A34A);
+    box-shadow:0 4px 12px rgba(34,197,94,.25);
+        }
+
+        .edit:hover{
+            transform:translateY(-2px);
+            box-shadow:0 8px 18px rgba(34,197,94,.35);
+        }
+
+        .hapus{
+            background:linear-gradient(135deg,#EF4444,#DC2626);
+            box-shadow:0 4px 12px rgba(239,68,68,.25);
+        }
+
+        .hapus:hover{
+            transform:translateY(-2px);
+            box-shadow:0 8px 18px rgba(239,68,68,.35);
+        }
+
+
+        .progress-bar{
+            width:100%;
+            height:10px;
+            background:#eee;
+            border-radius:50px;
+            overflow:hidden;
+        }
+
+        .progress-fill{
+            height:100%;
+            background:linear-gradient(90deg,#6C63FF,#8f87ff);
+        }
+        
+        .persen-tinggi {
+            background:#d4edda;
+            color:#155724;
+            padding:6px 12px;
+            border-radius:20px;
+            font-size:12px;
+            font-weight:600;
+        }
+
+        .persen-sedang {
+            background:#fff3cd;
+            color:#856404;
+            padding:6px 12px;
+            border-radius:20px;
+            font-size:12px;
+            font-weight:600;
+        }
+
+        .persen-rendah {
+            background:#f8d7da;
+            color:#721c24;
+            padding:6px 12px;
+            border-radius:20px;
+            font-size:12px;
+            font-weight:600;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <h2>
+        <i class="fas fa-wallet"></i>
+        UKT System
+    </h2>
+
+    <a href="/dashboard/" class="menu">
+        <i class="fas fa-chart-line"></i>
+        Dashboard
+    </a>
+
+    <a href="/pembayaran/" class="menu active">
+        <i class="fas fa-money-check-alt"></i>
+        Pembayaran
+    </a>
+
+    <a href="/mahasiswa/" class="menu">
+        <i class="fas fa-user-graduate"></i>
+        Mahasiswa
+    </a>
+
+    <a href="/laporan/" class="menu">
+        <i class="fas fa-file-alt"></i>
+        Laporan
+    </a>
+
+    <a href="/logout/" class="menu">
+        <i class="fas fa-sign-out-alt"></i>
+        Logout
+    </a>
+
+</div>
+
+<div class="content">
+
+    <!-- HEADER -->
+
+    <div class="page-title">
+    <span>UKT System / Pembayaran</span>
+    <h1>Data Pembayaran UKT</h1>
+</div>
+
+    <!-- SEARCH -->
+
+    <div class="filter">
+
+    <i class="fas fa-search"></i>
+
+    <input type="text"
+    id="searchInput"
+    placeholder="Cari nama / NIM..."
+    onkeyup="cariData()">
+
+</div>
+
+    <!-- TABLE -->
+
+    <table id="tabelPembayaran">
+
+        <thead>
+
+            <tr>
+                <th>Nama</th>
+                <th>NIM</th>
+                <th>Prodi</th>
+                <th>Nominal</th>
+                <th>Bayar</th>
+                <th>Persentase</th>
+                <th>Status</th>
+                <th>Deadline</th>
+                <th>Aksi</th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+{% for item in data %}
+
+<tr>
+
+    <td>{{ item.mahasiswa.nama }}</td>
+
+    <td>{{ item.mahasiswa.nim }}</td>
+
+    <td>{{ item.mahasiswa.prodi }}</td>
+
+    <td>Rp {{ item.nominal|floatformat:0 }}</td>
+
+    <td>Rp {{ item.jumlah_bayar|floatformat:0 }}</td>
+
+    <td>
+    {% if item.persentase == 100 %}
+        <span class="persen-tinggi">{{ item.persentase }}%</span>
+    {% elif item.persentase >= 50 %}
+        <span class="persen-sedang">{{ item.persentase }}%</span>
+    {% else %}
+        <span class="persen-rendah">{{ item.persentase }}%</span>
+    {% endif %}
+</td>
+
+    <td>
+
+        {% if item.status == "Lunas" %}
+
+            <span class="badge lunas">
+                {{ item.status }}
+            </span>
+
+        {% elif item.status == "Cicilan" %}
+
+            <span class="badge cicilan">
+                {{ item.status }}
+            </span>
+
+        {% else %}
+
+            <span class="badge belum">
+                {{ item.status }}
+            </span>
+
+        {% endif %}
+
+    </td>
+
+    <td>{{ item.deadline }}</td>
+
+<td class="aksi">
+
+    <a href="/edit/{{ item.id }}/">
+
+        <button type="button" class="edit">
+            <i class="fas fa-pen"></i>
+            Edit
+        </button>
+
+    </a>
+
+    <a href="/hapus/{{ item.id }}/">
+
+        <button type="button" class="hapus">
+            <i class="fas fa-trash"></i>
+            Hapus
+        </button>
+
+    </a>
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+        </tbody>
+
+    </table>
+
+ <br>
+ <!-- FORM INPUT -->
+
+    <form method="POST">
+
+    {% csrf_token %}
+
+    <div class="form-box">
+
+        <div class="form-grid">
+
+            <div class="form-group">
+                <label>Nama</label>
+                <input type="text" name="nama">
+            </div>
+
+            <div class="form-group">
+                <label>NIM</label>
+                <input type="text" name="nim">
+            </div>
+
+            <div class="form-group">
+                <label>Prodi</label>
+                <input type="text" name="prodi">
+            </div>
+
+            <div class="form-group">
+                <label>Semester</label>
+                <input type="number" name="semester">
+            </div>
+
+            <div class="form-group">
+                <label>Nominal</label>
+                <input type="number" name="nominal">
+            </div>
+
+            <div class="form-group">
+                <label>Jumlah Bayar</label>
+                <input type="number" name="jumlah_bayar">
+            </div>
+
+            <div class="form-group">
+                <label>Deadline</label>
+                <input type="date" name="deadline">
+            </div>
+
+        </div>
+
+        <br>
+
+        <button type="submit" class="btn">
+
+            <i class="fas fa-plus"></i>
+
+            Tambah Data
+
+        </button>
+
+    </div>
+
+</form>
+</div>
+<script>
+
+    function resetForm(){
+
+        document.getElementById("nama").value = "";
+        document.getElementById("nim").value = "";
+        document.getElementById("prodi").value = "";
+        document.getElementById("nominal").value = "";
+        document.getElementById("bayar").value = "";
+        document.getElementById("deadline").value = "";
+
+    }
+
+    function cariData(){
+
+    let input =
+    document.getElementById("searchInput")
+    .value.toLowerCase();
+
+    let table =
+    document.getElementById("tabelPembayaran");
+
+    let tr =
+    table.getElementsByTagName("tr");
+
+    for(let i = 1; i < tr.length; i++){
+
+        let tdNama =
+        tr[i].getElementsByTagName("td")[0];
+
+        let tdNim =
+        tr[i].getElementsByTagName("td")[1];
+
+        if(tdNama || tdNim){
+
+            let nama =
+            tdNama.textContent.toLowerCase();
+
+            let nim =
+            tdNim.textContent.toLowerCase();
+
+            if(
+                nama.indexOf(input) > -1 ||
+                nim.indexOf(input) > -1
+            ){
+                tr[i].style.display = "";
+            }
+            else{
+                tr[i].style.display = "none";
+            }
+
+        }
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>

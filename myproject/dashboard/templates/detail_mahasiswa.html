@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Kartu Mahasiswa</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+body{
+
+    height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+    135deg,
+    #7B61FF,
+    #B8B5FF
+    );
+}
+
+.card{
+    width:420px;
+    background:white;
+    border-radius:30px;
+    overflow:visible;
+    box-shadow:0 20px 40px rgba(0,0,0,.2);
+    position:relative;
+}
+
+.header{
+    padding:32px 28px 55px;
+    text-align:center;
+    color:white;
+    background:linear-gradient(135deg,#6C63FF,#7B61FF);
+    border-radius:24px 24px 0 0;
+    position:relative;
+}
+
+.header-icon{
+    width:64px;
+    height:64px;
+    background:rgba(255,255,255,0.2);
+    border:2px solid rgba(255,255,255,0.35);
+    border-radius:18px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 14px;
+    font-size:28px;
+    color:white;
+}
+
+.header h1{
+    font-size:20px;
+    font-weight:800;
+    letter-spacing:-0.3px;
+}
+
+.header p{
+    font-size:12px;
+    color:rgba(255,255,255,0.7);
+    margin-top:4px;
+    font-weight:500;
+    margin-bottom:20px;
+}
+.avatar-wrap{
+    display:flex;
+    justify-content:center;
+    position:relative;
+    z-index:2;
+    margin-top:-48px;
+    margin-bottom:0px;
+}
+
+
+.avatar{
+    width:100px;
+    height:100px;
+    background:white;
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border:5px solid white;
+    box-shadow:0 4px 16px rgba(108,99,255,.25);
+    color:#6C63FF;
+    font-size:42px;
+}
+
+.content{
+    padding:30px;
+}
+
+.item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:13px 16px;
+    border-radius:10px;
+    margin-bottom:8px;
+    background:#F8F8FF;
+}
+
+.label{
+    font-size:12px;
+    color:#9EA5B8;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+}
+
+.value{
+    font-size:14px;
+    font-weight:700;
+    color:#1A1D2E;
+    text-align:right;
+}
+
+.status{
+
+    display:inline-block;
+
+    margin-top:15px;
+
+    padding:10px 18px;
+
+    border-radius:20px;
+
+    background:#6C63FF;
+
+    color:white;
+}
+
+.status-wrap{
+    margin-top:18px;
+    display:flex;
+    justify-content:center;
+    padding-bottom:6px;
+}
+
+.divider{
+    height:1px;
+    background:#F0F0F0;
+    margin-bottom:14px;
+    margin-top:16px;  
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="header">
+    <div class="header-icon">
+        <i class="fas fa-graduation-cap"></i>
+    </div>
+    <h1>Kartu Mahasiswa</h1>
+    <p>Universitas Negeri Surabaya</p>
+</div>
+
+<div class="avatar-wrap">
+    <div class="avatar">
+        <i class="fas fa-user"></i>
+    </div>
+</div>
+
+    <div class="content">
+    <div class="divider"></div>
+
+    <div class="item">
+        <span class="label">Nama</span>
+        <span class="value">{{ mhs.nama }}</span>
+    </div>
+
+    <div class="item">
+        <span class="label">NIM</span>
+        <span class="value">{{ mhs.nim }}</span>
+    </div>
+
+    <div class="item">
+        <span class="label">Prodi</span>
+        <span class="value">{{ mhs.prodi }}</span>
+    </div>
+
+    <div class="item">
+        <span class="label">Angkatan</span>
+        <span class="value">{{ mhs.angkatan }}</span>
+    </div>
+
+    <div class="item">
+        <span class="label">Semester</span>
+        <span class="value">{{ mhs.semester }}</span>
+    </div>
+
+    <div class="status-wrap">
+        <div class="status">
+            {{ mhs.status }}
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

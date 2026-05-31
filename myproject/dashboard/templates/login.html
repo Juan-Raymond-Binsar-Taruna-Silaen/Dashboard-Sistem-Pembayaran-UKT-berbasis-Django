@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sistem Pembayaran UKT</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(
+    135deg,
+    #7B61FF,
+    #B8B5FF
+    );
+}
+
+.login-card{
+
+    width:380px;
+
+    background:white;
+
+    padding:40px 30px;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.12);
+
+    text-align:center;
+}
+
+.logo{
+
+    width:100px;
+    height:100px;
+
+    margin:auto;
+    margin-bottom:20px;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(
+    135deg,
+    #7B61FF,
+    #9B8CFF
+    );
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:white;
+    font-size:45px;
+}
+
+h1{
+    font-size:32px;
+    color:#1e1e2f;
+    margin-bottom:8px;
+}
+
+.subtitle{
+    color:#777;
+    margin-bottom:30px;
+}
+
+.input-group{
+    position:relative;
+    margin-bottom:18px;
+}
+
+.input-group i{
+
+    position:absolute;
+
+    left:15px;
+    top:15px;
+
+    color:#888;
+}
+
+.input-group input{
+
+    width:100%;
+
+    padding:14px 14px 14px 45px;
+
+    border:1px solid #ddd;
+
+    border-radius:12px;
+
+    outline:none;
+
+    transition:.3s;
+}
+
+.input-group input:focus{
+
+    border-color:#7B61FF;
+
+    box-shadow:
+    0 0 10px rgba(123,97,255,.2);
+}
+
+.remember{
+
+    display:flex;
+    align-items:center;
+
+    gap:8px;
+
+    margin-bottom:20px;
+
+    color:#666;
+}
+
+.btn-login{
+
+    width:100%;
+
+    border:none;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    background:
+    linear-gradient(
+    90deg,
+    #7B61FF,
+    #6C63FF
+    );
+
+    color:white;
+
+    font-size:16px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.btn-login:hover{
+
+    transform:translateY(-2px);
+
+    box-shadow:
+    0 10px 20px rgba(108,99,255,.3);
+}
+
+.footer{
+
+    margin-top:25px;
+
+    font-size:13px;
+
+    color:#888;
+}
+.logo-wrap{
+    position: relative;
+    width: 100px;
+    margin: auto;
+    margin-bottom: 30px;
+}
+
+.logo{
+    width: 100px;
+    height: 100px;
+    margin: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #7B61FF, #9B8CFF);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 45px;
+}
+
+.coin-badge{
+    position: absolute;
+    bottom: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #F59E0B, #FBBF24);
+    border-radius: 50%;
+    border: 3px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 800;
+    color: white;
+    box-shadow: 0 4px 12px rgba(245,158,11,0.45);
+}
+
+.error{
+    color:#EF4444;
+    background:#FEE2E2;
+    padding:12px;
+    border-radius:10px;
+    text-align:center;
+    margin:15px 0;
+    font-size:14px;
+    font-weight:500;
+}
+
+
+
+</style>
+
+</head>
+
+<body>
+
+<div class="login-card">
+
+    <div class="logo-wrap">
+    <div class="logo">
+        <i class="fas fa-graduation-cap"></i>
+    </div>
+    <div class="coin-badge">RP</div>
+</div>
+    <h1>Sistem Pembayaran UKT</h1>
+
+    <p class="subtitle">
+        Login Tata Usaha (TU)
+    </p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text"
+            name="username"
+            placeholder="Username TU"
+            required>
+        </div>
+
+        <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password"
+            name="password"
+            placeholder="Password"
+            required>
+        </div>
+
+        {% if error %}
+    <div class="error">
+        {{ error }}
+    </div>
+{% endif %}
+        <div class="remember">
+            <input type="checkbox">
+            <label>Ingat saya</label>
+        </div>
+
+        <button type="submit" class="btn-login">
+            <i class="fas fa-lock"></i>
+            Login
+        </button>
+
+    </form>
+
+    <div class="footer">
+        © 2026 | Sistem Pembayaran UKT
+    </div>
+
+</div>
+
+</body>
+</html>

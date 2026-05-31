@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Inter',sans-serif;
+        }
+
+        body{
+    display:flex;
+    background:#f4f7fc;
+    font-weight:400;
+}
+
+.sidebar{
+    width:260px;
+    height:100vh;
+    background:linear-gradient(180deg,#6C63FF,#5146e5);
+    color:white;
+    padding:25px;
+    position:fixed;
+}
+
+.sidebar h2{
+    margin-bottom:40px;
+    text-align:center;
+    font-weight:600;
+}
+
+.menu{
+    display:block;
+    color:white;
+    text-decoration:none;
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:12px;
+    transition:.3s;
+}
+
+.menu:hover{
+    background:rgba(255,255,255,.2);
+}
+
+.menu.active{
+    background:rgba(255,255,255,.25);
+    font-weight:bold;
+}
+
+.menu i{
+    margin-right:10px;
+}
+
+.content{
+    width:100%;
+    padding:30px;
+}
+
+        .header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:28px 30px;
+    border-radius:24px;
+    margin-bottom:25px;
+
+    background:linear-gradient(135deg,#6C63FF,#8B84FF);
+
+    color:white;
+
+    box-shadow:
+    0 10px 30px rgba(108,99,255,.25);
+}
+
+
+        .header h1{
+    color:white;
+    font-size:28px;
+    font-weight:600;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+    border:1px solid #6C63FF;
+    box-shadow:0 0 0 4px rgba(108,99,255,.1);
+}
+
+
+        .btn{
+    background:#6C63FF;
+    color:white;
+    border:none;
+    padding:13px 20px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:14px;
+    font-weight:500;
+    transition:.3s;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(108,99,255,.3);
+}
+        /* FORM */
+
+        .form-box{
+    background:white;
+    padding:25px;
+    border-radius:24px;
+    box-shadow:0 4px 15px rgba(0,0,0,0.08);
+    margin-bottom:25px;
+
+    border:1px solid #ececff;
+    transition:.3s;
+}
+
+        .form-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+        .form-group label{
+            display:block;
+            margin-bottom:6px;
+            font-size:13px;
+            color:#555;
+        }
+
+        .form-group input,
+        .form-group select{
+            width:100%;
+            padding:12px;
+            border:1px solid #ddd;
+            border-radius:10px;
+            outline:none;
+        }
+
+
+        .filter{
+    display:flex;
+    align-items:center;
+    gap:12px;
+
+    background:white;
+    padding:16px 20px;
+
+    border-radius:18px;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.06);
+
+    margin-bottom:25px;
+}
+
+.filter i{
+    color:#6C63FF;
+    font-size:15px;
+}
+
+.filter input{
+    flex:1;
+    border:none;
+    outline:none;
+    font-size:15px;
+    background:none;
+    color:#333;
+}
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+            border-radius:20px;
+            overflow:hidden;
+            box-shadow:0 4px 15px rgba(0,0,0,0.08);
+            
+        }
+
+        th{
+    background:linear-gradient(180deg,#6C63FF,#5146e5);
+    color:white;
+    padding:16px;
+    font-size:14px;
+    font-weight:600;
+    border-bottom:none;
+}
+
+        td{
+            padding:14px;
+            text-align:center;
+            border-bottom:1px solid #eee;
+            font-size:14px;
+        }
+
+        tr:hover{
+            background:#f8f8ff;
+        }
+
+        /* BADGE */
+
+        .badge{
+            padding:6px 12px;
+            border-radius:20px;
+            font-size:12px;
+            font-weight:600;
+        }
+
+        .lunas{
+            background:#d4edda;
+            color:#155724;
+        }
+
+        .cicilan{
+            background:#fff3cd;
+            color:#856404;
+        }
+
+        .belum{
+            background:#f8d7da;
+            color:#721c24;
+        }
+
+        /* AKSI */
+
+        .aksi{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+}
+
+.aksi a{
+    text-decoration:none;
+}
+
+.aksi button{
+    border:none;
+    padding:10px 16px;
+    border-radius:12px;
+    color:white;
+    cursor:pointer;
+
+    font-size:13px;
+    font-weight:500;
+
+    display:flex;
+    align-items:center;
+    gap:6px;
+
+    transition:.3s;
+}
+
+        .edit{
+    background:linear-gradient(135deg,#22C55E,#16A34A);
+    box-shadow:0 4px 12px rgba(34,197,94,.25);
+}
+
+.edit:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(34,197,94,.35);
+}
+
+.hapus{
+    background:linear-gradient(135deg,#EF4444,#DC2626);
+    box-shadow:0 4px 12px rgba(239,68,68,.25);
+}
+
+.hapus:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 18px rgba(239,68,68,.35);
+}
+
+        /* PROGRESS */
+
+        .progress-bar{
+            width:100%;
+            height:10px;
+            background:#eee;
+            border-radius:50px;
+            overflow:hidden;
+        }
+
+        .progress-fill{
+            height:100%;
+            background:linear-gradient(90deg,#6C63FF,#8f87ff);
+        }
+        
+
+    </style>
+    <meta charset="UTF-8">
+    <title>Edit Pembayaran</title>
+</head>
+<body>
+
+<div class="content">
+
+    <div class="header">
+        <h1>Edit Pembayaran UKT</h1>
+    </div>
+
+    <form method="POST">
+
+{% csrf_token %}
+
+<div class="form-box">
+
+    <div class="form-grid">
+
+        <div class="form-group">
+            <label>Nama</label>
+            <input type="text"
+            name="nama"
+            value="{{ data.mahasiswa.nama }}">
+        </div>
+
+        <div class="form-group">
+            <label>NIM</label>
+            <input type="text"
+            name="nim"
+            value="{{ data.mahasiswa.nim }}">
+        </div>
+
+        <div class="form-group">
+            <label>Prodi</label>
+            <input type="text"
+            name="prodi"
+            value="{{ data.mahasiswa.prodi }}">
+        </div>
+
+        <div class="form-group">
+            <label>Semester</label>
+            <input type="number"
+            name="semester"
+            value="{{ data.mahasiswa.semester }}">
+        </div>
+
+        <div class="form-group">
+            <label>Nominal</label>
+            <input type="number"
+            name="nominal"
+            value="{{ data.nominal }}">
+        </div>
+
+        <div class="form-group">
+            <label>Jumlah Bayar</label>
+            <input type="number"
+            name="jumlah_bayar"
+            value="{{ data.jumlah_bayar }}">
+        </div>
+
+        <div class="form-group">
+
+            <label>Status</label>
+
+            <select name="status">
+
+                <option value="Lunas"
+                {% if data.status == "Lunas" %}selected{% endif %}>
+                    Lunas
+                </option>
+
+                <option value="Cicilan"
+                {% if data.status == "Cicilan" %}selected{% endif %}>
+                    Cicilan
+                </option>
+
+                <option value="Belum Bayar"
+                {% if data.status == "Belum Bayar" %}selected{% endif %}>
+                    Belum Bayar
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="form-group">
+            <label>Deadline</label>
+
+            <input type="date"
+            name="deadline"
+            value="{{ data.deadline|date:'Y-m-d' }}">
+        </div>
+
+    </div>
+
+    <br>
+
+    <button type="submit" class="btn">
+        <i class="fas fa-save"></i>
+        Simpan Perubahan
+    </button>
+
+</div>
+
+</form>
+
+</div>
+</body>
+</html>

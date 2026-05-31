@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Detail Laporan</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Inter',sans-serif;
+        }
+
+        body{
+            background:#f4f7fc;
+            padding:40px;
+        }
+
+        .container{
+            max-width:800px;
+            margin:auto;
+            background:white;
+            padding:40px;
+            border-radius:20px;
+            box-shadow:0 4px 15px rgba(0,0,0,.08);
+        }
+
+        .header{
+            text-align:center;
+            margin-bottom:30px;
+        }
+
+        .header h1{
+            color:#333;
+            margin-bottom:10px;
+        }
+
+        .header p{
+            color:gray;
+            font-size:14px;
+        }
+
+        .detail-box{
+            margin-top:20px;
+        }
+
+        .detail-item{
+            display:flex;
+            justify-content:space-between;
+            padding:15px 0;
+            border-bottom:1px solid #eee;
+        }
+
+        .label{
+            font-weight:600;
+            color:#555;
+        }
+
+        .value{
+            color:#333;
+        }
+
+        .status{
+            background:#d4edda;
+            color:#155724;
+            padding:6px 12px;
+            border-radius:20px;
+            font-weight:bold;
+        }
+
+        .btn-area{
+            margin-top:35px;
+            text-align:center;
+        }
+
+        .btn{
+            background:#6C63FF;
+            color:white;
+            border:none;
+            padding:14px 24px;
+            border-radius:12px;
+            cursor:pointer;
+            font-size:15px;
+            transition:.3s;
+        }
+
+        .btn:hover{
+            opacity:.9;
+        }
+
+        @media print{
+
+            body{
+                background:white;
+                padding:0;
+            }
+
+            .container{
+                box-shadow:none;
+                border-radius:0;
+            }
+
+            .btn-area{
+                display:none;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>Laporan Pembayaran UKT</h1>
+        <p>Detail Pembayaran Mahasiswa</p>
+    </div>
+
+    <div class="detail-box">
+
+        <div class="detail-item">
+            <span class="label">Nama Mahasiswa</span>
+            <span class="value">
+                {{ data.mahasiswa.nama }}
+            </span>
+        </div>
+
+        <div class="detail-item">
+            <span class="label">NIM</span>
+            <span class="value">
+                {{ data.mahasiswa.nim }}
+            </span>
+        </div>
+
+        <div class="detail-item">
+            <span class="label">Program Studi</span>
+            <span class="value">
+                {{ data.mahasiswa.prodi }}
+            </span>
+        </div>
+
+        <div class="detail-item">
+            <span class="label">Semester</span>
+            <span class="value">
+                {{ data.mahasiswa.semester }}
+            </span>
+        </div>
+
+        <div class="detail-item">
+            <span class="label">Jumlah UKT</span>
+            <span class="value">
+                Rp {{ data.nominal }}
+            </span>
+        </div>
+
+        <div class="detail-item">
+            <span class="label">Jumlah Terbayar</span>
+            <span class="value">
+                Rp {{ data.jumlah_bayar }}
+            </span>
+        </div>
+
+        <div class="detail-item">
+            <span class="label">Status Pembayaran</span>
+            <span class="status">
+                {{ data.status }}
+            </span>
+        </div>
+
+        <div class="detail-item">
+            <span class="label">Deadline Pembayaran</span>
+            <span class="value">
+                {{ data.deadline }}
+            </span>
+        </div>
+
+    </div>
+
+    <div class="btn-area">
+
+        <button onclick="window.print()" class="btn">
+            Print Laporan
+        </button>
+
+    </div>
+
+</div>
+
+</body>
+</html>

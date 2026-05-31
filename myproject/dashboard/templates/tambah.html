@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tambah Pembayaran UKT</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            background:#eef2ff;
+            padding:40px;
+        }
+
+        .container{
+            max-width:1000px;
+            margin:auto;
+        }
+
+        .card{
+            background:white;
+            border-radius:20px;
+            overflow:hidden;
+            box-shadow:0 5px 20px rgba(0,0,0,.08);
+        }
+
+        .card-header{
+            background:linear-gradient(90deg,#6C63FF,#8A84FF);
+            color:white;
+            padding:18px 25px;
+
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .card-header h2{
+            font-size:20px;
+            font-weight:600;
+        }
+
+        .close{
+            font-size:24px;
+            cursor:pointer;
+        }
+
+        .card-body{
+            padding:30px;
+        }
+
+        .form-grid{
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:20px;
+        }
+
+        .form-group{
+            display:flex;
+            flex-direction:column;
+        }
+
+        label{
+            margin-bottom:8px;
+            font-size:14px;
+            font-weight:500;
+            color:#444;
+        }
+
+        input,
+        select{
+            padding:12px;
+            border:1px solid #ddd;
+            border-radius:10px;
+            outline:none;
+            transition:.3s;
+        }
+
+        input:focus,
+        select:focus{
+            border-color:#6C63FF;
+            box-shadow:0 0 10px rgba(108,99,255,.15);
+        }
+
+        .full{
+            grid-column:1/3;
+        }
+
+        .footer-btn{
+            display:flex;
+            justify-content:flex-end;
+            gap:15px;
+            margin-top:30px;
+        }
+
+        .btn-batal{
+            padding:12px 25px;
+            border:none;
+            border-radius:10px;
+            background:#f1f1f1;
+            cursor:pointer;
+        }
+
+        .btn-simpan{
+            padding:12px 25px;
+            border:none;
+            border-radius:10px;
+            background:#6C63FF;
+            color:white;
+            cursor:pointer;
+            font-weight:600;
+        }
+
+        .btn-simpan:hover{
+            background:#554cf0;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="card">
+
+        <div class="card-header">
+            <h2>📄 Tambah Pembayaran UKT</h2>
+            <span class="close">×</span>
+        </div>
+
+        <div class="card-body">
+
+            <form method="POST">
+                {% csrf_token %}
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Nama Mahasiswa</label>
+                        <input type="text"
+                               name="nama"
+                               placeholder="Masukkan nama">
+                    </div>
+
+                    <div class="form-group">
+                        <label>NIM</label>
+                        <input type="text"
+                               name="nim"
+                               placeholder="Masukkan NIM">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Prodi</label>
+                        <input type="text"
+                               name="prodi"
+                               placeholder="Pilih prodi">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Semester</label>
+                        <input type="number"
+                               name="semester"
+                               placeholder="Contoh: 2">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Nominal UKT</label>
+                        <input type="number"
+                               name="nominal"
+                               placeholder="Contoh: 8000000">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Jumlah Dibayar</label>
+                        <input type="number"
+                               name="jumlah_bayar"
+                               placeholder="Masukkan pembayaran">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select name="status">
+                            <option>Lunas</option>
+                            <option>Cicilan</option>
+                            <option>Belum Bayar</option>
+                            <option>Beasiswa</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Deadline</label>
+                        <input type="date"
+                               name="deadline">
+                    </div>
+
+                </div>
+
+                <div class="footer-btn">
+
+                    <button type="reset"
+                            class="btn-batal">
+                        Batal
+                    </button>
+
+                    <button type="submit"
+                            class="btn-simpan">
+                        Simpan Data
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -87,6 +87,3 @@ Polimorfisme diterapkan melalui method tampil_info() dan hitung() yang memiliki 
 Dengan implementasi ini, method yang sama dapat dipanggil pada object yang berbeda dan menghasilkan output yang berbeda sesuai dengan konteks masing-masing class, yang merupakan inti dari konsep polimorfisme dalam OOP. 
 
 
-
-
-Fitur logout berfungsi untuk 

@@ -89,4 +89,4 @@ Dengan implementasi ini, method yang sama dapat dipanggil pada object yang berbe
 
 
 
-Fitur logout berfungsi untuk mengakhiri sesi pengguna dan mengarahkan kembali ke halaman login, sehingga keamanan akses sistem tetap terjaga setelah petugas selesai menggunakan siste
+Fitur logout berfungsi untuk mengakhiri sesi pengguna dan mengarahkan kembali ke halaman lo

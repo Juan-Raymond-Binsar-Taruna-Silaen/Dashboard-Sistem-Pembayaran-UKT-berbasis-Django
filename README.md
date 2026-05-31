@@ -89,4 +89,4 @@ Dengan implementasi ini, method yang sama dapat dipanggil pada object yang berbe
 
 
 
-Fitur logout berfungsi untuk mengakhiri sesi pengguna dan mengarahkan kembali ke halaman lo
+Fitur logout berfungsi untuk 

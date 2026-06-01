@@ -70,70 +70,70 @@ a. Encapsulation (Enkapsulasi)
 
 Enkapsulasi diterapkan dengan membungkus data dan method ke dalam class model Django. Seluruh atribut dan method yang berkaitan dengan data mahasiswa terbungkus di dalam class Mahasiswa, sedangkan seluruh atribut dan method yang berkaitan dengan data pembayaran terbungkus di dalam class PembayaranUKT. Akses dan manipulasi data hanya dapat dilakukan melalui method yang telah didefinisikan di dalam masing-masing class, sehingga data terlindungi dari akses langsung yang tidak terstruktur.
 
-class Mahasiswa(BaseModel):
-    nama = models.CharField(max_length=100)
-    nim = models.CharField(max_length=20)
-    prodi = models.CharField(max_length=50)
-    semester = models.IntegerField()
+    class Mahasiswa(BaseModel):
+        nama = models.CharField(max_length=100)
+        nim = models.CharField(max_length=20)
+        prodi = models.CharField(max_length=50)
+        semester = models.IntegerField()
 
-    def status(self):
-        if self.semester > 8:
-            return "Nonaktif"
-        return "Aktif"
+        def status(self):
+            if self.semester > 8:
+                return "Nonaktif"
+            return "Aktif"
 
-    def angkatan(self):
-        return "20" + self.nim[:2]
+        def angkatan(self):
+            return "20" + self.nim[:2]
 
-    def cek_status_ukt(self):
-        pembayaran = self.pembayaranukt_set.first()
-        if pembayaran:
-            return pembayaran.status
-        return "Belum Ada Data"
+        def cek_status_ukt(self):
+            pembayaran = self.pembayaranukt_set.first()
+            if pembayaran:
+                return pembayaran.status
+            return "Belum Ada Data"
 
 
-class PembayaranUKT(BaseModel):
-    nominal = models.IntegerField()
-    jumlah_bayar = models.IntegerField()
-    persentase = models.IntegerField(default=0)
-    status = models.CharField(max_length=20)
-    deadline = models.DateField()
+    class PembayaranUKT(BaseModel):
+        nominal = models.IntegerField()
+        jumlah_bayar = models.IntegerField()
+        persentase = models.IntegerField(default=0)
+        status = models.CharField(max_length=20)
+        deadline = models.DateField()
 
-    def hitung_persentase(self):
-        if self.nominal > 0:
-            return int((self.jumlah_bayar / self.nominal) * 100)
-        return 0
+        def hitung_persentase(self):
+            if self.nominal > 0:
+                return int((self.jumlah_bayar / self.nominal) * 100)
+            return 0
 
-    def hitung_sisa(self):
-        return self.nominal - self.jumlah_bayar
+        def hitung_sisa(self):
+            return self.nominal - self.jumlah_bayar
 
-    def update_status(self):
-        pct = self.hitung_persentase()
-        if pct >= 100:
-            return "Lunas"
-        elif pct > 0:
-            return "Cicilan"
-        else:
-            return "Belum Bayar"
+        def update_status(self):
+            pct = self.hitung_persentase()
+            if pct >= 100:
+                return "Lunas"
+            elif pct > 0:
+                return "Cicilan"
+            else:
+                return "Belum Bayar"
 
 
 b. Inheritance (Pewarisan)
 
 Pewarisan diterapkan melalui class BaseModel yang merupakan class induk abstrak berisi atribut created_at dan updated_at. Kedua atribut ini diwariskan secara otomatis kepada seluruh class turunannya yaitu Mahasiswa dan PembayaranUKT, sehingga setiap data yang tersimpan ke database secara otomatis memiliki informasi waktu pembuatan dan waktu terakhir diperbarui tanpa perlu mendefinisikan ulang di setiap class.
 
-class BaseModel(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    class BaseModel(models.Model):
+        created_at = models.DateTimeField(auto_now_add=True)
+        updated_at = models.DateTimeField(auto_now=True)
 
-    class Meta:
-        abstract = True
+        class Meta:
+            abstract = True
 
-# Mahasiswa mewarisi BaseModel
-class Mahasiswa(BaseModel):
-    ...
+    # Mahasiswa mewarisi BaseModel
+    class Mahasiswa(BaseModel):
+        ...
 
-# PembayaranUKT mewarisi BaseModel
-class PembayaranUKT(BaseModel):
-    ...
+    # PembayaranUKT mewarisi BaseModel
+    class PembayaranUKT(BaseModel):
+        ...
 
 
 c. Abstraction (Abstraksi)
@@ -142,66 +142,66 @@ Abstraksi diterapkan melalui class BaseEntitas yang dibuat menggunakan modul ABC
 
 Karena Django memiliki sistem metaclass tersendiri yang tidak kompatibel apabila digabungkan langsung dengan ABC, maka abstraksi diimplementasikan melalui class terpisah yaitu MahasiswaInfo dan PembayaranInfo yang mewarisi BaseEntitas secara langsung.
 
-from abc import ABC, abstractmethod
+    from abc import ABC, abstractmethod
 
-class BaseEntitas(ABC):
+    class BaseEntitas(ABC):
 
-    @abstractmethod
-    def tampil_info(self):
-        pass
+        @abstractmethod
+        def tampil_info(self):
+            pass
 
-    @abstractmethod
-    def hitung(self):
-        pass
-
-
-class MahasiswaInfo(BaseEntitas):
-    def __init__(self, nama, nim):
-        self.nama = nama
-        self.nim = nim
-
-    def tampil_info(self):
-        return f"{self.nama} - {self.nim}"
-
-    def hitung(self):
-        return len(self.nim)
+        @abstractmethod
+        def hitung(self):
+            pass
 
 
-class PembayaranInfo(BaseEntitas):
-    def __init__(self, nama, status):
-        self.nama = nama
-        self.status = status
+    class MahasiswaInfo(BaseEntitas):
+        def __init__(self, nama, nim):
+            self.nama = nama
+            self.nim = nim
 
-    def tampil_info(self):
-        return f"{self.nama} - {self.status}"
+        def tampil_info(self):
+            return f"{self.nama} - {self.nim}"
 
-    def hitung(self):
-        return 0
+        def hitung(self):
+            return len(self.nim)
+
+
+    class PembayaranInfo(BaseEntitas):
+        def __init__(self, nama, status):
+            self.nama = nama
+            self.status = status
+
+        def tampil_info(self):
+            return f"{self.nama} - {self.status}"
+
+        def hitung(self):
+            return 0
 
 d. Polymorphism (Polimorfisme)
 
 Polimorfisme diterapkan melalui method tampil_info() dan hitung() yang memiliki nama identik namun menghasilkan perilaku yang berbeda pada setiap class. Hal ini merupakan implementasi dari konsep method overriding dalam OOP, di mana setiap class mendefinisikan ulang method yang sama dengan logika yang berbeda sesuai dengan kebutuhan masing-masing class.
 
-# Pada class Mahasiswa, tampil_info() menampilkan nama dan NIM
+    # Pada class Mahasiswa, tampil_info() menampilkan nama dan NIM
 
-def tampil_info(self):
-    return f"{self.nama} - {self.nim}"
+    def tampil_info(self):
+        return f"{self.nama} - {self.nim}"
 
-# hitung() mengembalikan nilai semester
+    # hitung() mengembalikan nilai semester
 
-def hitung(self):
-    return self.semester
+    def hitung(self):
+        return self.semester
 
 
-# Pada class PembayaranUKT, tampil_info() menampilkan nama dan status pembayaran
+    # Pada class PembayaranUKT, tampil_info() menampilkan nama dan status pembayaran
 
-def tampil_info(self):
-    return f"{self.mahasiswa.nama} - {self.status}"
+    def tampil_info(self):
+        return f"{self.mahasiswa.nama} - {self.status}"
 
-# hitung() mengembalikan nilai persentase pembayaran
+    # hitung() mengembalikan nilai persentase pembayaran
 
-def hitung(self):
-    return self.hitung_persentase()
+    def hitung(self):
+        return self.hitung_persentase()
 
 
 Dengan implementasi ini, method yang sama dapat dipanggil pada object yang berbeda dan menghasilkan output yang berbeda sesuai dengan konteks masing-masing class, yang merupakan inti dari konsep polimorfisme dalam OOP. 

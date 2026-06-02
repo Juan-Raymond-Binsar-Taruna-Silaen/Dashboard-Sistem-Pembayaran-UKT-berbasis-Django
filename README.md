@@ -207,3 +207,42 @@ Polimorfisme diterapkan melalui method tampil_info() dan hitung() yang memiliki 
 Dengan implementasi ini, method yang sama dapat dipanggil pada object yang berbeda dan menghasilkan output yang berbeda sesuai dengan konteks masing-masing class, yang merupakan inti dari konsep polimorfisme dalam OOP. 
 
 
+<img width="604" height="297" alt="Gambar Pendukung 1" src="https://github.com/user-attachments/assets/7cb46417-9de6-4ea8-95e2-3786bbccc6eb" />
+
+<img width="604" height="296" alt="Gambar Pendukung 2" src="https://github.com/user-attachments/assets/1b65ab9c-2773-45a4-b1ea-fb8218dde2b3" />
+
+<img width="604" height="297" alt="Gambar Pendukung 3" src="https://github.com/user-attachments/assets/17931fc5-a378-43fe-9ef9-21054747f008" />
+
+<img width="604" height="325" alt="Gambar Pendukung 4" src="https://github.com/user-attachments/assets/ef2cd52f-4985-44af-8a62-3a2b5875228c" />
+
+<img width="604" height="340" alt="Gambar Pendukung 5" src="https://github.com/user-attachments/assets/25f39447-3f2c-43f2-b085-ed16e2fcc9bb" />
+
+<img width="604" height="340" alt="Gambar Pendukung 6" src="https://github.com/user-attachments/assets/039db561-0a21-4c6d-94d3-6360dfa935c5" />
+
+<img width="604" height="340" alt="Gambar Pendukung 7" src="https://github.com/user-attachments/assets/ea7e963c-6422-4248-adca-e253e30cb2cd" />
+
+<img width="604" height="340" alt="Gambar Pendukung 8" src="https://github.com/user-attachments/assets/c7cb49eb-d7bb-47d8-b6e3-14d277cf1f04" />
+
+<img width="604" height="325" alt="Gambar Pendukung 9" src="https://github.com/user-attachments/assets/86baef98-6021-4b3f-b179-e61fde5fe109" />
+
+<img width="604" height="325" alt="Gambar Pendukung 10" src="https://github.com/user-attachments/assets/c929811c-88ac-45a7-96e8-8127cab1d180" />
+
+<img width="604" height="325" alt="Gambar Pendukung 11" src="https://github.com/user-attachments/assets/0a780ae8-8b7a-4014-9f02-97fac89a0746" />
+
+<img width="604" height="325" alt="Gambar Pendukung 12" src="https://github.com/user-attachments/assets/3140c163-7753-4bb0-abbc-7e1899d5e330" />
+
+<img width="604" height="325" alt="Gambar Pendukung 13" src="https://github.com/user-attachments/assets/98359f1e-a166-463d-aa3c-a7aa8bc650f6" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+

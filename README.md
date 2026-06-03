@@ -207,42 +207,26 @@ Polimorfisme diterapkan melalui method tampil_info() dan hitung() yang memiliki 
 Dengan implementasi ini, method yang sama dapat dipanggil pada object yang berbeda dan menghasilkan output yang berbeda sesuai dengan konteks masing-masing class, yang merupakan inti dari konsep polimorfisme dalam OOP. 
 
 
-<img width="604" height="297" alt="Gambar Pendukung 1" src="https://github.com/user-attachments/assets/7cb46417-9de6-4ea8-95e2-3786bbccc6eb" />
+<img width="544" height="268" alt="Gambar Proyek 1" src="https://github.com/user-attachments/assets/f3daa16f-1e89-4890-a13c-7e1852149ea2" />
 
-<img width="604" height="296" alt="Gambar Pendukung 2" src="https://github.com/user-attachments/assets/1b65ab9c-2773-45a4-b1ea-fb8218dde2b3" />
+<img width="544" height="269" alt="Gambar Proyek 2" src="https://github.com/user-attachments/assets/01a21045-126d-4c90-8448-b5a7b89f4337" />
 
-<img width="604" height="297" alt="Gambar Pendukung 3" src="https://github.com/user-attachments/assets/17931fc5-a378-43fe-9ef9-21054747f008" />
+<img width="544" height="269" alt="Gmabar Proyek 3" src="https://github.com/user-attachments/assets/58d66e09-159c-48df-b6eb-571a2cddb6e3" />
 
-<img width="604" height="325" alt="Gambar Pendukung 4" src="https://github.com/user-attachments/assets/ef2cd52f-4985-44af-8a62-3a2b5875228c" />
+<img width="544" height="268" alt="Gambar Proyek 4" src="https://github.com/user-attachments/assets/986cf1e0-4d80-40f1-9d84-0bdcd1d6ccb8" />
 
-<img width="604" height="340" alt="Gambar Pendukung 5" src="https://github.com/user-attachments/assets/25f39447-3f2c-43f2-b085-ed16e2fcc9bb" />
+<img width="544" height="271" alt="Gambar Proyek 5" src="https://github.com/user-attachments/assets/7a437e68-5dda-496b-b4d4-ed81c1e45ad3" />
 
-<img width="604" height="340" alt="Gambar Pendukung 6" src="https://github.com/user-attachments/assets/039db561-0a21-4c6d-94d3-6360dfa935c5" />
+<img width="544" height="271" alt="Gambar Proyek 6" src="https://github.com/user-attachments/assets/85956587-8ac4-449a-93f2-944db56db5f6" />
 
-<img width="604" height="340" alt="Gambar Pendukung 7" src="https://github.com/user-attachments/assets/ea7e963c-6422-4248-adca-e253e30cb2cd" />
+<img width="544" height="265" alt="Gambar Proyek 7" src="https://github.com/user-attachments/assets/27dc9fb2-d40d-4135-99a1-f29462a34504" />
 
-<img width="604" height="340" alt="Gambar Pendukung 8" src="https://github.com/user-attachments/assets/c7cb49eb-d7bb-47d8-b6e3-14d277cf1f04" />
+<img width="544" height="269" alt="Gambar Proyek 8" src="https://github.com/user-attachments/assets/6ececc6a-2953-4f09-b517-3aa3773095ee" />
 
-<img width="604" height="325" alt="Gambar Pendukung 9" src="https://github.com/user-attachments/assets/86baef98-6021-4b3f-b179-e61fde5fe109" />
+<img width="544" height="269" alt="Gambar Proyek 9" src="https://github.com/user-attachments/assets/242a3c1d-0a69-4824-950e-bf9759e45d27" />
 
-<img width="604" height="325" alt="Gambar Pendukung 10" src="https://github.com/user-attachments/assets/c929811c-88ac-45a7-96e8-8127cab1d180" />
+<img width="544" height="269" alt="Gambar Proyek 10" src="https://github.com/user-attachments/assets/1cb4e9b6-dae4-4ae2-ba55-2be34f1c91bd" />
 
-<img width="604" height="325" alt="Gambar Pendukung 11" src="https://github.com/user-attachments/assets/0a780ae8-8b7a-4014-9f02-97fac89a0746" />
+<img width="544" height="274" alt="Gambar Proyek 11" src="https://github.com/user-attachments/assets/74209530-f404-420f-a8cc-ce11a5d8143d" />
 
-<img width="604" height="325" alt="Gambar Pendukung 12" src="https://github.com/user-attachments/assets/3140c163-7753-4bb0-abbc-7e1899d5e330" />
-
-<img width="604" height="325" alt="Gambar Pendukung 13" src="https://github.com/user-attachments/assets/98359f1e-a166-463d-aa3c-a7aa8bc650f6" />
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<img width="544" height="270" alt="Gambar Proyek 12" src="https://github.com/user-attachments/assets/98f1235d-1667-4beb-8956-fc1f55eb28c9" />
